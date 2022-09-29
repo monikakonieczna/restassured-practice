@@ -7,9 +7,9 @@ import models.request.CreatePetRequest;
 import models.response.CreatePetResponse;
 
 
-public class PetStoreHelper extends RestAssuredClient {
+public class PetHelper extends RestAssuredClient {
 
-    public PetStoreHelper() {
+    public PetHelper() {
         super(APIConstants.PetStore.BASE_URL);
     }
 

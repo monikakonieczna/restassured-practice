@@ -1,6 +1,6 @@
 package services.pet;
 
-import helpers.PetStoreHelper;
+import helpers.PetHelper;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("Test creation of a pet in a pet store")
 public class CreatePetHappyPathTest {
 
-    PetStoreHelper petStoreHelper = new PetStoreHelper();
+    PetHelper petHelper = new PetHelper();
     PropertyManager propertyManager = new PropertyManager();
 
     Random random = new Random();
@@ -30,7 +30,7 @@ public class CreatePetHappyPathTest {
     @CsvSource({"available", "pending", "sold"})
     @ParameterizedTest
     public void createPetHappyPath(String status) {
-        Response response = petStoreHelper.createPet(petId, petName, status);
+        Response response = petHelper.createPet(petId, petName, status);
 
         assertEquals(200, response.getStatusCode());
 
